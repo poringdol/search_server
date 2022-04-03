@@ -17,7 +17,7 @@ search-server:
 	go build -o ./$(SEARCH_SERVER) ./server && pwd && ls && gnome-terminal --window -- ./$(SEARCH_SERVER) http )
 
 web:
-	cd web && npm start
+	cd web && gnome-terminal --window -- npm start
 
 
 stop: stop.web stop.search-server stop.db

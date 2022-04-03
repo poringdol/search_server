@@ -8,7 +8,7 @@ const addressess = ({address}) => {
     return (
       <div>
         <div style={{marginBottom: '10px'}}>
-          <h3>АДРЕСС</h3>
+          <h3>АДРЕС</h3>
           <strong>Город: </strong> {capitalize(address.city)}, <strong>улица:</strong> {capitalize(address.street)}, <strong>дом:</strong> {address.house}, <strong>квартира:</strong> {address.office}
         </div>
         <FullRecordList recs={address.full_records} />
