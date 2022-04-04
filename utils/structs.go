@@ -46,15 +46,40 @@ type DBRecord struct {
 	AddressDoorCode   *string    `bson:"address_doorcode,omitempty"`
 }
 
+type FullName struct {
+	Name       string
+	Surname    string
+	Patronymic string
+}
+
 type HHTPError struct {
 	Code    int    `json:"code"`
 	Message string `json:"message"`
+}
+
+type HTTPResponse struct {
+	Error *HHTPError `json:"error"`
 }
 
 type HTTPGetByPhoneResponse struct {
 	Error     *HHTPError     `json:"error"`
 	Person    *HHTPerson     `json:"person"`
 	Addresses []*HTTPAddress `json:"addresses"`
+}
+
+type HTTPGetByAddressResponse struct {
+	Error     *HHTPError        `json:"error"`
+	Addresses []*HTTPFullRecord `json:"addresses"`
+}
+
+type HTTPGetByNameResponse struct {
+	Error   *HHTPError   `json:"error"`
+	Persons []*HHTPerson `json:"persons"`
+}
+
+type HTTPGetCitiesResponse struct {
+	Error  *HHTPError `json:"error"`
+	Cities []string   `json:"cities"`
 }
 
 type HHTPerson struct {

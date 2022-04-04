@@ -3,7 +3,7 @@ import styles from '../App.css';
 import FullRecordList from "./FullRecordList";
 import capitalize from "../capitalize"
 
-const addressess = ({address}) => {
+const Address = ({address}) => {
   if (address !== null && address.length != 0) {
     return (
       <div>
@@ -20,4 +20,4 @@ const addressess = ({address}) => {
   )
 };
 
-export default addressess;
+export default Address;

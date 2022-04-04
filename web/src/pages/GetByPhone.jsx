@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AddressList from "../components/AddressList";
 import Person from "../components/Person";
-import MainPageSelect from "../components/MainPageSelect";
 
 const GetByPhone = function () {
   const [phone, setPhone] = useState("")
@@ -31,9 +30,9 @@ const GetByPhone = function () {
   }
 
   return (
-    <div className="content">
-      <input className="input" type="text" placeholder="Телефон" value={phone} onChange={e => setPhone(e.target.value)} />
-      <button className="input" onClick={findByPhone}>Отправить</button>
+    <div className="input_div">
+      <input className="input_text" type="text" placeholder="Телефон" value={phone} onChange={e => setPhone(e.target.value)} />
+      <button className="input_text" onClick={findByPhone}>Отправить</button>
 
       <Person person={person} />
 

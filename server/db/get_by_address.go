@@ -2,6 +2,8 @@ package db
 
 import (
 	"context"
+	"fmt"
+	"gitlab.stageoffice.ru/UCS-COMMON/utils/errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"yandex-food/utils"
@@ -21,20 +23,29 @@ func GetByAddress(ctx context.Context, client *mongo.Client, rec *utils.Record) 
 				{"$eq", rec.AddressStreet},
 			},
 		},
-		{"address_house",
+	}
+
+	if rec.AddressHouse != "" {
+		filter = and(filter, bson.D{{"address_house",
 			bson.D{
-				{"$eq", rec.AddressHouse},
-			},
-		},
-		{"address_office",
+				{"$eq", rec.AddressHouse}}}})
+	}
+
+	if rec.AddressOffice != "" {
+		filter = and(filter, bson.D{{"address_office",
 			bson.D{
-				{"$eq", rec.AddressOffice},
-			},
-		},
+				{"$eq", rec.AddressOffice}}}})
 	}
 
 	cursor, err := collection.Find(ctx, filter)
-	utils.CheckError(err, "get cursor")
+	if err != nil {
+		return nil, errors.New("get cursor")
+	}
+	defer func() {
+		if err := cursor.Close(ctx); err != nil {
+			fmt.Println("close cursor error")
+		}
+	}()
 
 	return readAllRecords(ctx, cursor)
 }

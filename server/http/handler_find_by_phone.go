@@ -1,4 +1,4 @@
-package main
+package http
 
 import (
 	"context"
@@ -12,41 +12,8 @@ import (
 	"yandex-food/utils"
 )
 
-const serverAddr = "localhost:9000"
-
-func NewHTTPError(code int, message string) *utils.HHTPError {
-	return &utils.HHTPError{Code: code, Message: message}
-}
-
-func SetHTTPError(w http.ResponseWriter, code int, message string) {
-	httpErr := NewHTTPError(code, message)
-	response := utils.HTTPGetByPhoneResponse{Error: httpErr}
-
-	jsonResponse, err := json.Marshal(response)
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		return
-	}
-
-	w.Write(jsonResponse)
-}
-
-func startHttp() {
-	http.HandleFunc("/find_by_phone", findByPhone)
-	http.HandleFunc("/", root)
-
-	fmt.Printf("HTTP-server started at %s\n", serverAddr)
-	http.ListenAndServe(serverAddr, nil)
-}
-
-func root(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Invalid link\n")
-}
-
 func findByPhone(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	w.Header().Set("Access-Control-Allow-Headers", "Access-Control-Allow-Origin")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
+	SetHeaders(w)
 
 	ctx := context.Background()
 	mongoClient, err := mongo.Connect(ctx, options.Client().ApplyURI(mongoPath))

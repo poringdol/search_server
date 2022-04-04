@@ -729,6 +729,7 @@ gitlab.stageoffice.ru/UCS-COMMON/schemagen-go/v41 v41.59.0/go.mod h1:MmUqrMjKYYn
 gitlab.stageoffice.ru/UCS-COMMON/schemagen-go/v41 v41.73.0/go.mod h1:MmUqrMjKYYnUwQRQWDd7urMYQafdd4E2xZas8xA+BOY=
 gitlab.stageoffice.ru/UCS-COMMON/schemagen-go/v41 v41.100.0/go.mod h1:MmUqrMjKYYnUwQRQWDd7urMYQafdd4E2xZas8xA+BOY=
 gitlab.stageoffice.ru/UCS-COMMON/schemagen-go/v41 v41.112.7/go.mod h1:MmUqrMjKYYnUwQRQWDd7urMYQafdd4E2xZas8xA+BOY=
+gitlab.stageoffice.ru/UCS-COMMON/schemagen-go/v41 v41.187.0 h1:zCcFc3w8H40uEl1MvdrydN20jwWhNgyn0wRkY6PKbaQ=
 gitlab.stageoffice.ru/UCS-COMMON/schemagen-go/v41 v41.187.0/go.mod h1:MmUqrMjKYYnUwQRQWDd7urMYQafdd4E2xZas8xA+BOY=
 gitlab.stageoffice.ru/UCS-COMMON/scopelos v1.1.0/go.mod h1:O6MBYFW9SRlHXojsJ4/yHtMZcljqNRLUMmuETCDcfNI=
 gitlab.stageoffice.ru/UCS-COMMON/utils v1.12.0/go.mod h1:3OUIYgQyD3mnaRS+dAUlYICBUT9H6ynNQq8SefaKBdo=

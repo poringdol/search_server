@@ -1,7 +1,6 @@
 import React from "react";
 import '../App.css';
 import capitalize from "../capitalize"
-import styles from "../App.css";
 
 const Person = ({ person }) => {
   if (person !== null) {
